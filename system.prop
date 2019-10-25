@@ -58,7 +58,7 @@ ro.vendor.qti.sys.fw.bservice_enable=true
 ro.vendor.qti.va_aosp.support=1
 
 # RCS
-persist.rcs.supported=0
+persist.rcs.supported=1
 
 # Zygote
 persist.device_config.runtime_native.usap_pool_enabled=true
