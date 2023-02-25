@@ -97,6 +97,7 @@ bluetooth.profile.sap.server.enabled?=true
 persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac
 persist.bluetooth.a2dp_offload.disabled=false
 vendor.qcom.bluetooth.soc=cherokee
+persist.vendor.bt.aac_frm_ctl.enabled=true
 persist.bt.enableAptXHD=true
 persist.service.btui.use_aptx=1
 
