@@ -141,6 +141,9 @@ ro.qcom.adreno.qgl.ShaderStorageImageExtendedFormats=0
 # FRP
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
+# FS-verity
+ro.apk_verity.mode=2
+
 # Graphics
 debug.egl.hw=0
 debug.sf.hw=0
