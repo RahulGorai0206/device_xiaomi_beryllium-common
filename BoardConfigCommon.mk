@@ -39,12 +39,10 @@ BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0xA840
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
-TARGET_KERNEL_CLANG_COMPILE := true
-TARGET_KERNEL_CLANG_VERSION := proton
-TARGET_KERNEL_CLANG_PATH := $(shell pwd)/prebuilts/clang/host/linux-x86/clang-proton
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_CONFIG := vendor/xiaomi/mi845_defconfig
 TARGET_KERNEL_SOURCE := kernel/xiaomi/sdm845
+KERNEL_LD := LD=ld.lld
 
 # Platform
 TARGET_BOARD_PLATFORM := sdm845
@@ -131,6 +129,13 @@ include device/qcom/sepolicy_vndr-legacy-um/SEPolicy.mk
 BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
 PRODUCT_PRIVATE_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/private
 PRODUCT_PUBLIC_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/public
+
+# Set kernel clang
+TARGET_KERNEL_CLANG_COMPILE := true
+KERNEL_SUPPORTS_LLVM_TOOLS := true
+TARGET_KERNEL_CLANG_VERSION := playground
+TARGET_KERNEL_CLANG_PATH := $(shell pwd)/prebuilts/clang/host/linux-x86/clang-playground
+TARGET_KERNEL_ADDITIONAL_FLAGS := AS=llvm-as AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump STRIP=llvm-strip LD=ld.lld LLVM=1 LLVM_IAS=1
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
