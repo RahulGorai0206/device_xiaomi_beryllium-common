@@ -74,10 +74,8 @@ system_ext/framework/audiosphere.jar|cfe651014a70739e4a2a41dc746fa8111f092bde
 
 # Audio FX modules (vendor)
 vendor/lib64/soundfx/libasphere.so
-vendor/lib64/soundfx/libdirac.so
 vendor/lib64/soundfx/libshoebox.so
 vendor/lib/soundfx/libasphere.so
-vendor/lib/soundfx/libdirac.so
 vendor/lib/soundfx/libshoebox.so
 
 # Bluetooth (A2DP)
