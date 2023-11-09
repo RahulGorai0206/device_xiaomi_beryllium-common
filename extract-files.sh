@@ -41,7 +41,9 @@ function blob_fixup() {
         vendor/lib/mediadrm/libwvdrmengine.so | vendor/lib64/mediadrm/libwvdrmengine.so | vendor/lib64/libwvhidl.so)
             ${PATCHELF}  --replace-needed "libprotobuf-cpp-lite-3.9.1.so" "libprotobuf-cpp-full-3.9.1.so" "${2}"
             ;;
-
+        vendor/etc/seccomp_policy/vendor.qti.hardware.dsp.policy)
+            echo 'madvise: 1' >> ${2}
+            ;;
     esac
 }
 
