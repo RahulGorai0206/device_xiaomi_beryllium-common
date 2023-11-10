@@ -436,3 +436,6 @@ $(call inherit-product, vendor/xiaomi/sdm845-common/sdm845-common-vendor.mk)
 # Remove unwanted packages
 PRODUCT_PACKAGES += \
     RemovePackages
+
+# Call MiCam setup
+$(call inherit-product, vendor/xiaomi/memecam/config.mk)
