@@ -7,7 +7,3 @@ dontaudit {
   bt_firmware_file
   firmware_file
 }:filesystem getattr;
-
-dontaudit {
-  rild
-} default_prop:file r_file_perms;
