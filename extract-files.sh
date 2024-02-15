@@ -29,11 +29,15 @@ function blob_fixup() {
         vendor/lib/camera/components/com.qti.node.watermark.so)
             grep -q "libpiex_shim.so" "${2}" || ${PATCHELF} --add-needed "libpiex_shim.so" "${2}"
             ;;
-
         vendor/lib/mediadrm/libwvdrmengine.so | vendor/lib64/mediadrm/libwvdrmengine.so | vendor/lib64/libwvhidl.so)
             ${PATCHELF}  --replace-needed "libprotobuf-cpp-lite-3.9.1.so" "libprotobuf-cpp-full-3.9.1.so" "${2}"
             ;;
-
+        vendor/lib64/libdlbdsservice.so | vendor/lib/libstagefright_soft_ac4dec.so | vendor/lib/libstagefright_soft_ddpdec.so)
+            "${PATCHELF}" --replace-needed "libstagefright_foundation.so" "libstagefright_foundation-v33.so" "${2}"
+            ;;
+        vendor/etc/dolby/dax-default.xml)
+            sed -i "/volume-leveler-enable/ s/true/false/g" "${2}"
+            ;;
     esac
 }
 
